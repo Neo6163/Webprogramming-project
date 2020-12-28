@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+        <meta charset="utf-8">
+        <title>Form Validation</title>
+        <link rel="stylesheet" href="cssfile.css">
+        </head>
+    <body onload="document.registration.userid.focus();">
+    <h1>Registration Form</h1>
+    <form name='registration' onSubmit="return formValidation();">
+        <ul>
+            <li><label for="firstname">First Name:</label></li>
+            <li><input type="text" name="firstname" size="50" /></li>
+            <li><label for="lastname">Last Name:</label></li>
+            <li><input type="text" name="lastname" size="50" /></li>
+            <li><label for="city">City:</label></li>
+            <li><input type="text" name="city" size="50" /></li>
+            <li><label for="Pincode">Pincode:</label></li>
+            <li><input type="text" name="Pincode" /></li>   
+            <li><label for="email">Email:</label></li>
+            <li><input type="text" name="email" size="50" /></li>
+            <li><label for="number">Mobile no.:</label></li>
+            <li><input type="text" name="number" size="50" /></li>
+            <li><input type="submit" name="submit" value="Submit" /></li>
+        </ul>
+    </form>
+    </body>
+</html>

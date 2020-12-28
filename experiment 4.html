@@ -1,0 +1,112 @@
+<html>
+<head>
+<title>JS Form Validation</title>
+<script type = "text/javascript">
+      function validate() {
+if( document.form.userid.value == "" || document.form.userid.value.length<5 || document.form.userid.value.length>12) {
+            alert( "User id : Required and must be of length 5 to 12." );
+            document.form.userid.focus();
+	    return false;
+         }
+if( document.form.pass.value == "" || document.form.pass.value.length<7 || document.form.pass.value.length>12) {
+            alert( "Password : Required and must be of length 7 to 12." );
+            document.form.pass.focus() ;
+	    return false;
+         }
+if( document.form.name.value == "") {
+            alert( "Name : Required and alphabets only." );
+            document.form.name.focus() ;
+	    return false;
+         }
+var letters = /^[A-Za-z]+$/;
+   if(!(document.form.name.value.match(letters)))
+     {
+        alert( "Name : Required and alphabets only." );
+	document.form.name.focus() ;
+	return false;
+     }
+if( document.form.country.value == "-1" ) {
+            alert( "Country : Required. Must select a country." );
+            return false;
+         }
+if( document.form.zip.value == "" || isNaN( document.form.zip.value ) ||
+            document.form.zip.value.length != 6 ) {
+            alert( "Zip : Required. Must be numeric only" );
+            document.form.zip.focus() ;
+            return false;
+         }
+var x=document.form.email.value;  
+var atposition=x.indexOf("@");  
+var dotposition=x.lastIndexOf(".");  
+if (atposition<1 || dotposition<atposition+2 || dotposition+2>=x.length){  
+  alert("Email : Required. Must be a valid email."); 
+  document.form.email.focus(); 
+  return false;  
+  }  
+var s=document.getElementsByName("sex");
+
+if (!(s[0].checked || s[1].checked)) {
+    alert("Sex : Required.");
+    return false;
+}
+
+var l=document.getElementsByName("language");
+
+if (!(l[0].checked || l[1].checked)) {
+    alert("Language : Required.");
+    return false;
+}
+return true;
+}
+</script>
+</head>
+<style>
+input[type=text],[type=number],[type=password],[type=email],textarea{
+  box-sizing: border-box;
+  width: 20%;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+label {
+  display: inline-block;
+  padding: 10px 5px 5px 0;
+}
+
+input[type=submit] {
+  background-color: #055500;
+  color: white;
+  border: none;
+  padding: 10px 10px;
+}
+input[type=submit]:hover {
+  background-color: #0aaa00;
+</style>
+<body>
+<form name="form" onsubmit="return validate()">
+<h1>Registration Form</h1>
+  User ID* : <input type="text" name="userid"><br><br>  
+  Password* : <input type="password" name="pass"><br><br>
+  Name* : <input type="text" name="name"><br><br>
+  Address : <input type="text" name="address" ><br><br>
+  Country*: <select name="country"> 
+	    <option value="-1" selected>(Please select a country)</option>
+            <option value="1">INDIA</option> 
+            <option value="2">USA</option> 
+            <option value="3">UK</option> 
+            </select><br><br>
+  ZIP Code* : <input type="number" name="zip"><br><br>
+  Email* : <input type="email" name="email"><br><br>
+  Sex* : <input type="radio" id="male" name="sex" value="male">
+  <label for="male">Male</label>
+  <input type="radio" id="female" name="sex" value="female">
+  <label for="female">Female</label><br><br>
+  Language* : <input type="checkbox" id="english" name="language" value="English">
+  <label for="english">English</label>
+  <input type="checkbox" id="nonenglish" name="language" value="Non English">
+  <label for="nonenglish">Non English</label><br><br>
+  About : <textarea name="about"></textarea><br><br>
+  <input type = "submit" value = "Submit" />
+</form>
+</body>
+</html>
